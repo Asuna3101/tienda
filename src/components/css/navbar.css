@@ -1,0 +1,124 @@
+.navbar {
+    background-color: #A884D6;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    transition: all 0.3s ease;
+}
+
+.navbar h1 {
+    margin: 18px 18px;
+    font-size: 140%;
+    color: #fff;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left a {
+    color: #ffffff;
+    text-align: center;
+    padding: 8px 16px;
+    margin: 5px 5px;
+    text-decoration: none;
+    font-size: 100%;
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-left a:hover {
+    color:  #A884D6;
+    background-color: #fff;
+}
+    
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right a{
+    padding: 8px 16px;
+    margin: 5px 5px;
+    border: none;
+    color: #fff;
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.navbar-right button {
+    margin-left: 16px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    background-color: #fff;
+    color: #A884D6;
+    border-radius: 4px;
+    padding: 8px 30px;
+    font-size: 100%;
+}
+
+.navbar-right a:hover {
+    color:  #A884D6;
+    background-color: #fff;
+}
+
+.navbar-right button:hover {
+    color:#fff;
+    background-color: #A884D6;
+}
+
+
+.navbar-right .cart-icon {
+    padding: 8px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.navbar-right .cart-icon:hover {
+    color:  #A884D6;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 8px;
+    }
+
+    .navbar-left, .navbar-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+
+    .navbar-left a, .navbar-right a, .navbar-right button {
+        padding: 10px 8px;
+        font-size: 15px;
+        margin-left: 0;
+        margin-right: 8px;
+    }
+
+    .navbar-right .cart-icon {
+        margin-right: 8px;
+    }
+}
