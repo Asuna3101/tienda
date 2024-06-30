@@ -1,24 +1,21 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../css/item.css';
 
-
-export default function Item() {
-    const navigate = useNavigate();
-
+export default function Item({ product }) {
     return (
         <div className="item">
-            <Link to="/product-detail">
-                <img src={Product5} alt="Colección de Items 1" />
+            <Link to={`/product-detail/${product.id}`}>
+                <img src={product.image} alt={product.name} />
             </Link>
             <div>
-                <Link to="/product-detail">
-                    <p>Colección de Items 1: Especiales para regresar al colegio</p>
+                <Link to={`/product-detail/${product.id}`}>
+                    <p>{product.name}: {product.description}</p>
                 </Link>
             </div>
             <div>
-                <Link to="#">Learn More</Link>
+                <Link to={`/product-detail/${product.id}`}>Learn More</Link>
             </div>
         </div>
-    )
+    );
 }
