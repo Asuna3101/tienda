@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import '../components/css/register.css';
 import UserNavBar from '../components/navbar/user.navbar.js';
 import Footer from '../components/footer/footer';
@@ -8,6 +9,7 @@ export default function Register() {
     const [apellido, setApellido] = useState('');
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate(); // Crea una instancia de useNavigate
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -23,6 +25,12 @@ export default function Register() {
             });
             const data = await response.json();
             console.log(data);
+            if (response.ok) {
+                // Si el registro es exitoso, redirige al usuario al perfil
+                navigate(`/user/profile/${correo}`);  // Utiliza navigate en lugar de history.push
+            } else {
+                throw new Error('Failed to register');
+            }
         } catch (error) {
             console.error('Error:', error);
         }
