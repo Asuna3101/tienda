@@ -10,7 +10,7 @@ export default function UserNavBar() {
             <a href='/error-page'>Ofertas</a>
         </>
     );
-
+    
     const renderRightItems = ({ handleLoginClick, handleCartClick }) => (
         <>
             <BsCart3 className="cart-icon" onClick={handleCartClick} />

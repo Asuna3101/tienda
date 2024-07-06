@@ -16,9 +16,11 @@
 
 .footer-section {
     flex: 1;
-    min-width: 180px;
+    min-width: 200px; /* Minimum width to prevent sections from being too narrow */
     margin: 10px;
     text-align: left;
+    padding: 10px; /* Adds some padding */
+    box-sizing: border-box; /* Includes padding in width */
 }
 
 .footer-section h2,
@@ -45,16 +47,6 @@
     color: #ccc;
 }
 
-.footer-social a {
-    margin: 0 10px;
-    font-size: 24px;
-    color: #fff; 
-    transition: color 0.3s ease;
-}
-
-.footer-social a:hover {
-    color: #555;
-}
 
 @media (max-width: 768px) {
     .footer-container {
@@ -63,7 +55,12 @@
     }
 
     .footer-section {
-        margin: 10px 0;
         text-align: center;
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .footer-social {
+        justify-content: center; /* Center the social icons on small screens */
+        margin-top: 10px; /* Additional space above social links on mobile */
     }
 }

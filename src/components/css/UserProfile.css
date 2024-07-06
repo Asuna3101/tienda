@@ -1,0 +1,42 @@
+.user-profile {
+    display: flex;
+    min-height: 80vh;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #f4f4f9;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px; /* Size of the title */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    background-color: #ddd;
+    color: #000;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: -1px 0 5px rgba(0,0,0,0.1);
+}

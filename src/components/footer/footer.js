@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/footer.css';
+import '../css/footer.css'; // Ensure your CSS path is correct
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -33,16 +33,16 @@ export default function Footer() {
                     <h3>Síguenos</h3>
                     <div className="footer-social">
                         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-facebook"></i>
+                            
                         </a>
                         <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-instagram"></i>
+                            
                         </a>
                         <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-twitter"></i>
+                            
                         </a>
                         <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-                            <i className="fab fa-youtube"></i>
+                            
                         </a>
                     </div>
                 </div>

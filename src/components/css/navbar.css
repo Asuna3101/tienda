@@ -122,3 +122,17 @@
         margin-right: 8px;
     }
 }
+.navbar .title-button {
+    background: none;
+    border: none;
+    color: inherit;  
+    font: inherit;   
+    cursor: pointer; /* Mostrar pointer cursor para indicar que es clickable */
+    padding: 0;      
+    margin: 0;       
+}
+
+.navbar .title-button:hover,
+.navbar .title-button:focus {
+    outline: none;  /* Optional: removes the focus outline */
+}
