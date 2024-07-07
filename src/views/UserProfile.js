@@ -6,9 +6,10 @@ import RecentOrders from '../components/recentOrders/RecentOrders.js';
 import AccountSettings from '../components/accountSettings/AccountSettings.js';
 import ChangePassword from '../components/chancePassword/ChancePasSword.js';
 
+
 export default function UserProfile() {
     const [userData, setUserData] = useState({});
-    const [section, setSection] = useState('profile');
+    const [section, setSection] = useState('');  // Cambia el estado inicial a una cadena vacía
 
     const fetchData = async () => {
         try {
@@ -33,10 +34,12 @@ export default function UserProfile() {
     useEffect(() => {
         fetchData();
     }, []);
+
     const logout = () => {
         localStorage.removeItem('token');
         window.location.href = '/login';
     };
+
     return (
         <>
             <UserNavBar />
@@ -44,13 +47,14 @@ export default function UserProfile() {
                 <div className="sidebar">
                     <h3 className="sidebar-title">Mi Cuenta</h3>
                     <ul>
-                        <li><button onClick={() => setSection('profile')}>Datos de Registro</button></li>
                         <li><button onClick={() => setSection('recent-orders')}>Órdenes Recientes</button></li>
+                        <li><button onClick={() => setSection('profile')}>Datos de Registro</button></li>
                         <li><button onClick={() => setSection('change-password')}>Cambiar Password</button></li>
                         <li><button onClick={logout}>Cerrar Sesión</button></li>
                     </ul>
                 </div>
                 <div className="content">
+                    {section === '' && <div><h2>Bienvenido a tu cuenta</h2><p>Aquí puedes gestionar todos los aspectos de tu perfil.</p></div>}
                     {section === 'profile' && <AccountSettings userData={userData} />}
                     {section === 'recent-orders' && <RecentOrders />}
                     {section === 'change-password' && <ChangePassword />}

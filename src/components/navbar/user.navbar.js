@@ -17,16 +17,16 @@ export default function UserNavBar() {
 
     const renderNavItems = () => (
         <>
-            <a href='/error-page'>Más vendidos</a>
-            <a href='/error-page'>Nuevos</a>
-            <a href='/error-page'>Ofertas</a>
+            <a href='/'>Más vendidos</a>
+            <a href='/'>Nuevos</a>
+            <a href='/'>Ofertas</a>
         </>
     );
 
     const renderRightItems = () => (
         <>
             <BsCart3 className="cart-icon" onClick={() => console.log("Carrito")} />
-            <a href='/error-page'>Ayuda</a>
+            <a href='/'>Ayuda</a>
             <button onClick={handleLoginClick}>Mi cuenta</button>
         </>
     );

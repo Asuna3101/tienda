@@ -15,34 +15,34 @@ export default function Footer() {
                     <h3>Cuenta</h3>
                     <Link to="/login">Login</Link>
                     <Link to="/register">Registro</Link>
-                    <Link to="/cart">Carrito</Link>
+                    <Link to="/">Carrito</Link>
                 </div>
                 <div className="footer-section">
                     <h3>Productos</h3>
-                    <Link to="/bestsellers">Más Vendidos</Link>
-                    <Link to="/new">Nuevos</Link>
-                    <Link to="/offers">Ofertas</Link>
+                    <Link to="/">Más Vendidos</Link>
+                    <Link to="/">Nuevos</Link>
+                    <Link to="/">Ofertas</Link>
                 </div>
                 <div className="footer-section">
                     <h3>Ayuda</h3>
-                    <Link to="/about">Acerca de Nosotros</Link>
-                    <Link to="/shipping-policy">Política de Envío</Link>
-                    <Link to="/faq">FAQ</Link>
+                    <Link to="/">Acerca de Nosotros</Link>
+                    <Link to="/">Política de Envío</Link>
+                    <Link to="/">FAQ</Link>
                 </div>
                 <div className="footer-section">
                     <h3>Síguenos</h3>
                     <div className="footer-social">
                         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                            
+                            <img src={require('../../assets/img/footer/fb.png').default} alt="Facebook" />
                         </a>
                         <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                            
+                            <img src={require('../../assets/img/footer/instagram.png').default} alt="Instagram" />
                         </a>
                         <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                            
+                            <img src={require('../../assets/img/footer/twitter-sign.png').default} alt="Twitter" />
                         </a>
                         <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-                            
+                            <img src={require('../../assets/img/footer/youtube.png').default} alt="YouTube" />
                         </a>
                     </div>
                 </div>
