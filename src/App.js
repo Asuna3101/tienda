@@ -5,6 +5,7 @@ import Register from './views/Register';
 import Login from './views/Login';
 import PasswordRecovery from './views/PasswordRecovery';
 import UserProfile from './views/UserProfile';
+import PrivateRoute from './components/private/PrivateRoute';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -26,7 +27,10 @@ const router = createBrowserRouter([
   },
   {
     path: '/user/profile',
-    element: <UserProfile />,
+    element: <PrivateRoute />,
+    children: [
+      { path: "", element: <UserProfile /> },
+    ],
   },
 ]);
 

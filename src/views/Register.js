@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom';
 import '../components/css/register.css';
 import UserNavBar from '../components/navbar/user.navbar.js';
 import Footer from '../components/footer/footer';
@@ -9,7 +9,7 @@ export default function Register() {
     const [apellido, setApellido] = useState('');
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate(); // Crea una instancia de useNavigate
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -23,16 +23,18 @@ export default function Register() {
                 },
                 body: JSON.stringify(userData)
             });
-            const data = await response.json();
-            console.log(data);
             if (response.ok) {
+                const data = await response.json();
+                console.log(data);
                 // Si el registro es exitoso, redirige al usuario al perfil
-                navigate(`/user/profile/${correo}`);  // Utiliza navigate en lugar de history.push
+                navigate(`/user/profile`);
             } else {
-                throw new Error('Failed to register');
+                // Si no es exitoso, puedes manejarlo aquí, por ejemplo, mostrando un mensaje
+                throw new Error(`Failed to register: ${response.status} ${response.statusText}`);
             }
         } catch (error) {
             console.error('Error:', error);
+            alert('Error al registrarse. Por favor, inténtelo de nuevo.');
         }
     };
 
@@ -58,7 +60,7 @@ export default function Register() {
                         </div>
                         <button type="submit">Regístrate</button>
                         <div className="register-link">
-                            <p>¿Ya tienes cuenta? <a href="login">Ingresa</a></p>
+                            <p>¿Ya tienes cuenta? <a href="/login">Ingresa</a></p>
                         </div>
                     </form>
                 </div>

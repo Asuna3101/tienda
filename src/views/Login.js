@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../components/css/login.css';
 import UserNavBar from '../components/navbar/user.navbar.js';
 import Footer from '../components/footer/footer';
@@ -8,6 +9,7 @@ const API_URL = 'http://localhost:4000/login';
 export default function Login() {
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -21,10 +23,17 @@ export default function Login() {
                 },
                 body: JSON.stringify(loginInfo),
             });
-            const data = await response.json();
-            console.log(data);
+            if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem('token', data.token); // Guardar el token en localStorage
+                navigate(`/user/profile`); // Redirige al usuario al perfil
+            } else {
+                // Manejar errores de autenticación, como credenciales incorrectas
+                throw new Error(`Failed to log in: ${response.status} ${response.statusText}`);
+            }
         } catch (error) {
             console.error('Error:', error);
+            alert('Error al iniciar sesión. Por favor, inténtelo de nuevo.');
         }
     };
 
@@ -68,5 +77,3 @@ export default function Login() {
         </>
     );
 }
-
-
