@@ -22,9 +22,11 @@ export default function Login() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(loginInfo),
-            });
+            }).catch((error) => console.log(error));
+
             if (response.ok) {
                 const data = await response.json();
+                console.log(data);
                 localStorage.setItem('token', data.token); // Guardar el token en localStorage
                 navigate(`/user/profile`); // Redirige al usuario al perfil
             } else {
@@ -33,7 +35,7 @@ export default function Login() {
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Error al iniciar sesión. Por favor, inténtelo de nuevo.');
+            //alert('Error al iniciar sesión. Por favor, inténtelo de nuevo.');
         }
     };
 

@@ -6,6 +6,7 @@ import Login from './views/Login';
 import PasswordRecovery from './views/PasswordRecovery';
 import UserProfile from './views/UserProfile';
 import PrivateRoute from './components/private/PrivateRoute';
+import ChangePassword from './views/chancePassword';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <UserProfile /> },
     ],
+  },
+  {
+    path: '/reset-password',
+    element: <ChangePassword />,
   },
 ]);
 

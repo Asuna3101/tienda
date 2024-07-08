@@ -11,11 +11,11 @@ const AccountSettings = () => {
         const userData = { nombre, apellido, correo };
 
         try {
-            const response = await fetch('http://localhost:4000/api/user/update', {
-                method: 'POST',
+            const response = await fetch('http://localhost:4000/usuario', {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`  // Asegúrate de que el token es correcto y está disponible.
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Asegúrate de que el token es correcto y está disponible.
                 },
                 body: JSON.stringify(userData)
             });

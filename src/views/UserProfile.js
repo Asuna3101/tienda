@@ -13,7 +13,7 @@ export default function UserProfile() {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/user/profile', {
+            const response = await fetch('http://localhost:4000/usuario', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export default function UserProfile() {
                     <p><strong>Nombre:</strong> {userData.nombre}</p>
                     <p><strong>Apellido:</strong> {userData.apellido}</p>
                     <p><strong>Correo:</strong> {userData.correo}</p>
-                    <p>Aquí podras gestionar todos los aspectos de tu perfil.</p>
+                    <p>Aquí puedes gestionar todos los aspectos de tu perfil.</p>
                     </div>}
                     
                     {section === 'profile' && <AccountSettings userData={userData} />}

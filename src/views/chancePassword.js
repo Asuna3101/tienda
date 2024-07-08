@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import '../css/chancePasword.css';
+import UserNavBar from '../components/navbar/user.navbar.js';
+import Footer from '../components/footer/footer';
+import { useSearchParams } from 'react-router-dom';
 
 const ChangePassword = () => {
-    const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
+
+    const [searchParams] = useSearchParams();
+
 
     const handleChangePassword = async (e) => {
         e.preventDefault();
@@ -15,15 +19,15 @@ const ChangePassword = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:4000/change-password', {
+            const response = await fetch('http://localhost:4000/reset-password', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem('token')}`  // Asegúrate de que el token es correcto y está disponible.
                 },
                 body: JSON.stringify({
-                    oldPassword: oldPassword,
-                    newPassword: newPassword
+                    newPassword: newPassword,
+                    token: searchParams.get("token")
                 })
             });
 
@@ -38,24 +42,25 @@ const ChangePassword = () => {
             setMessage('Error al cambiar la contraseña.');
         }
     };
-
     return (
-        <div className="change-password-page">
-            <div className="change-password">
-                <h2>Cambiar Contraseña</h2>
-                <form onSubmit={handleChangePassword}>
-                    <label>Contraseña Actual:</label>
-                    <input type="password" value={oldPassword} onChange={e => setOldPassword(e.target.value)} required />
-                    <label>Nueva Contraseña:</label>
-                    <input type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} required />
-                    <label>Confirmar Nueva Contraseña:</label>
-                    <input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
-                    <button type="submit">Cambiar Contraseña</button>
-                </form>
-                {message && <p>{message}</p>}
-            </div>
-        </div>
-    );
+      <>
+      <UserNavBar />
+      <div className="change-password-page">
+          <div className="change-password">
+              <h2>Cambiar Contraseña</h2>
+              <form onSubmit={handleChangePassword}>
+                  <label>Nueva Contraseña:</label>
+                  <input type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} required />
+                  <label>Confirmar Nueva Contraseña:</label>
+                  <input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
+                  <button type="submit">Cambiar Contraseña</button>
+              </form>
+              {message && <p>{message}</p>}
+          </div>
+      </div>
+      <Footer />
+      </>
+  );
 }
 
 export default ChangePassword;

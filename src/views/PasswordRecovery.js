@@ -9,7 +9,7 @@ export default function PasswordRecovery() {
     const handleSubmit = async (event) => {
         event.preventDefault(); //Evitar que el formulario actualice la pagina
         try {
-            const response = await fetch('http://localhost:4000/password/recovery', {
+            const response = await fetch('http://localhost:4000/forgot-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
