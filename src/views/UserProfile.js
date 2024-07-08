@@ -54,7 +54,15 @@ export default function UserProfile() {
                     </ul>
                 </div>
                 <div className="content">
-                    {section === '' && <div><h2>Bienvenido a tu cuenta</h2><p>Aquí puedes gestionar todos los aspectos de tu perfil.</p></div>}
+                    {section === '' && 
+                    <div>
+                        <h2>Bienvenido a tu cuenta</h2>
+                    <p><strong>Nombre:</strong> {userData.nombre}</p>
+                    <p><strong>Apellido:</strong> {userData.apellido}</p>
+                    <p><strong>Correo:</strong> {userData.correo}</p>
+                    <p>Aquí podras gestionar todos los aspectos de tu perfil.</p>
+                    </div>}
+                    
                     {section === 'profile' && <AccountSettings userData={userData} />}
                     {section === 'recent-orders' && <RecentOrders />}
                     {section === 'change-password' && <ChangePassword />}

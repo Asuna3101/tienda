@@ -16,13 +16,13 @@ export default function Register() {
         const userData = { nombre, apellido, correo, password };
 
         try {
-            const response = await fetch('http://localhost:4000/register', {
+            const response = await fetch('http://localhost:4000/usuarios', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(userData)
-            });
+            }).catch((error)=>console.log(error));
             if (response.ok) {
                 const data = await response.json();
                 console.log(data);
@@ -34,7 +34,7 @@ export default function Register() {
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Error al registrarse. Por favor, inténtelo de nuevo.');
+            //alert('Error al registrarse. Por favor, inténtelo de nuevo.');
         }
     };
 
